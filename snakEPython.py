@@ -1,4 +1,4 @@
-#snake_python
+#snakEPython
 
 import pygame
 import random
@@ -11,7 +11,7 @@ import time
 # Hard      ->  40
 # Harder    ->  60
 # Impossible->  120
-difficulty = 17
+difficulty = 16
 
 # Window size
 frame_size_x = 1280
@@ -25,11 +25,11 @@ if check_errors[1] > 0:
     print(f'[!] {check_errors[1]} ERRORS FOUND !!! EXIT !!!')
     sys.exit(-1)
 else:
-    print('LETS PLAY !!!')
+    print('Hey !, Lets play snake PYTHON')
 
 
 # Initialise game window
-pygame.display.set_caption('snake_python')
+pygame.display.set_caption('snakEPython')
 game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
 
 
