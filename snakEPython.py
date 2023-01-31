@@ -1,10 +1,11 @@
-#snakEPython
+#snakEPython console play
 
 import pygame
 import random
 import sys
 import time
-
+#from PIL import #Image
+#Image = Image.open(r'C:\picTUres\pythonicon.jpg')
 # Difficulty settings
 # Easy      ->  10
 # Medium    ->  25
@@ -61,30 +62,37 @@ score = 0
 # Game Over
 def game_over():
     my_font = pygame.font.SysFont('Fixed-sys', 100)
-    game_over_surface = my_font.render('Python dont like walls !!! psGo :)', True, orange)
-    game_over_rect = game_over_surface.get_rect()
+    game_over_surface = my_font.render('python donT Like walls !', True, orange)
+    game_over_rect = game_over_surface.get_rect()#special effect
     game_over_rect.midtop = (frame_size_x/2, frame_size_y/4)
     game_window.fill(black)
     game_window.blit(game_over_surface, game_over_rect)
     show_score(0, orange, 'Fixed-sys', 100)
+    game_window.blit(game_over_surface, game_over_rect)
+    psGo(orange, 'Fixed-sys', 20)
     pygame.display.flip()
     time.sleep(5)
     pygame.quit()
     sys.exit()
 
+def psGo(color, font, size):
+    psGo_font = pygame.font.SysFont(font, size)
+    psGo_surface = psGo_font.render('psGo © Alright Copyright 2023', True, color)
+    psGo_rect = psGo_surface.get_rect()
+    game_window.blit(psGo_surface, psGo_rect)
 
 # Score
 def show_score(choice, color, font, size):
     score_font = pygame.font.SysFont(font, size)
-    score_surface = score_font.render('Final score : ' + str(score), True, color)
+    score_surface = score_font.render('totaL Score : ' + str(score), True, color)
     score_rect = score_surface.get_rect()
     if choice == 1:
-        score_rect.midtop = (frame_size_x/10, 15)
+        score_rect.midtop = (frame_size_x/15, 15)
     else:
-        score_rect.midtop = (frame_size_x/2, frame_size_y/1.25)
+        score_rect.midtop = (frame_size_x / 2, frame_size_y / 1.25)
     game_window.blit(score_surface, score_rect)
+#    Image.show()
     # pygame.display.flip()
-
 
 # Main logic
 while True:
@@ -163,6 +171,7 @@ while True:
             game_over()
 
     show_score(1, green, 'consolas', 20)
+    psGo(green, 'consolas', 10)
     # Refresh game screen
     pygame.display.update()
     # Refresh rate
